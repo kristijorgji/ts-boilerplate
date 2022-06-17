@@ -1,0 +1,25 @@
+{
+  "name": "ts-boilerplate",
+  "description": "ts-boilerplate",
+  "author": "Kristi Jorgji",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "start": "ts-node -r dotenv/config src/index.ts",
+    "compile": "tsc",
+    "lint": "eslint '{src,__tests__}/**/*.ts'",
+    "fix": "eslint --fix --ext js,jsx,ts,tsx {src,__tests__}"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1"
+  },
+  "devDependencies": {
+    "@kristijorgji/eslint-config-typescript": "^0.0.1",
+    "@types/jest": "^27.5.0",
+    "@types/node": "^17.0.31",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
+    "ts-node": "^10.8.0",
+    "typescript": "^4.6.4"
+  }
+}
