@@ -1,0 +1,24 @@
+name: Auto-merge Dependabot
+
+on:
+  pull_request_target:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+    steps:
+      - name: Enable auto-merge for Dependabot PRs when CI passes
+        uses: pascalgn/automerge-action@v0.16.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MERGE_STRATEGY: squash
+          MERGE_LABELS: ''
+          MERGE_REMOVE_LABELS: ''
+          MERGE_COMMIT_MESSAGE: pull-request-title
+          UPDATE_LABELS: ''
+          UPDATE_METHOD: rebase
