@@ -1,7 +1,9 @@
 name: Auto-merge Dependabot
 
 on:
-  pull_request_target:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
 
 permissions:
   contents: write
@@ -10,15 +12,19 @@ permissions:
 jobs:
   automerge:
     runs-on: ubuntu-latest
-    if: github.actor == 'dependabot[bot]'
+    # Condition 1: Only if the 'CI' workflow succeeded
+    # Condition 2: Only if the person who triggered the CI was dependabot
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.triggering_actor.name == 'dependabot[bot]'
     steps:
-      - name: Enable auto-merge for Dependabot PRs when CI passes
+      - name: Auto-merge for Dependabot
         uses: pascalgn/automerge-action@v0.16.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MERGE_STRATEGY: squash
-          MERGE_LABELS: ''
-          MERGE_REMOVE_LABELS: ''
           MERGE_COMMIT_MESSAGE: pull-request-title
-          UPDATE_LABELS: ''
           UPDATE_METHOD: rebase
+          # Double-check safety: only merge if author is dependabot
+          MERGE_FILTER_AUTHOR: "dependabot[bot]"
+          MERGE_FORK_POSSIBLE: "false"
