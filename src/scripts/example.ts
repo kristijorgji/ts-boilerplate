@@ -7,10 +7,9 @@
 
 import fs from 'fs';
 
+import { logger } from '@src/logger';
 import { Command } from 'commander';
 import { z } from 'zod';
-
-import { logger } from '@src/logger';
 
 // --- TYPES ---
 

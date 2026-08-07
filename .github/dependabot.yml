@@ -3,17 +3,18 @@ updates:
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'daily' # Updated to daily for better security
-    open-pull-requests-limit: 10 # Increased slightly to allow for groups
-    # Grouping keeps your PR list clean and merges things together
+      interval: 'daily'
+    open-pull-requests-limit: 10
+    rebase-strategy: auto
     groups:
       dependencies:
         patterns:
           - '*'
         exclude-patterns:
-          - 'typescript' # Keep TS separate if you want to check it manually
+          - 'typescript'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
       interval: 'daily'
+    rebase-strategy: auto

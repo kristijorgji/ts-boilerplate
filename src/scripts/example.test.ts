@@ -2,9 +2,8 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-
 import { command, runExample } from '@src/scripts/example';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 vi.mock('@src/logger', () => ({
     logger: {
@@ -102,9 +101,9 @@ describe('example CLI command', () => {
     });
 
     it('exits with code 1 on invalid config JSON', async () => {
-        const exitSpy = vi.spyOn(process, 'exit').mockImplementation((() => {
+        const exitSpy = vi.spyOn(process, 'exit').mockImplementation(() => {
             throw new Error('process.exit called');
-        }) as never);
+        });
 
         await expect(command.parseAsync(['node', 'example', '--config', '{bad json}'])).rejects.toThrow(
             'process.exit called',
