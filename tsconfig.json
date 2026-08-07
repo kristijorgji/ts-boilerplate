@@ -1,20 +1,19 @@
 {
-  "compilerOptions": {
-    "esModuleInterop": true,
-    "preserveConstEnums": true,
-    "strict": true,
-    "sourceMap": true,
-    "allowJs": true,
-    "target": "ES2022",
-    "outDir": "dist",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "lib": ["ES2022"],
-    "rootDir": "./src",
-    "skipLibCheck": true,
-    "baseUrl": ".",
-    "paths": { "@src/*": ["src/*"] }
-  },
-  "include": ["./src"],
-  "exclude": ["**/*.test.ts"]
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "preserveConstEnums": true,
+        "strict": true,
+        "sourceMap": true,
+        "allowJs": true,
+        "target": "ES2022",
+        "outDir": "dist",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "lib": ["ES2022"],
+        "rootDir": "./src",
+        "skipLibCheck": true,
+        "paths": { "@src/*": ["./src/*"] }
+    },
+    "include": ["./src"],
+    "exclude": ["**/*.test.ts"]
 }
