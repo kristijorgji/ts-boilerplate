@@ -2,8 +2,9 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 
-import findRootDir from '@src/core/findRootDir';
 import { describe, expect, it } from 'vitest';
+
+import findRootDir from '@src/core/findRootDir';
 
 function createTempDirTree(): { rootDir: string; nestedDir: string } {
     const tmpBase = fs.mkdtempSync(path.join(os.tmpdir(), 'tax-helper-root-'));

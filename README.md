@@ -200,7 +200,8 @@ and [Commitlint](https://commitlint.js.org/) to enforce
 
 Runs automatically before every commit:
 
-1. **lint-staged** — runs `eslint --fix` on staged JS/TS files
+1. **lint-staged** — `eslint --fix` on staged JS/TS; `prettier --write` on staged
+   JSON/Markdown
 2. **vitest run** — runs the full test suite (`pnpm test:run`)
 
 If either step fails, the commit is aborted.

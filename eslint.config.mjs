@@ -6,6 +6,10 @@ const baseline = createTypescriptConfig({
     codeQuality: true,
     explicitTypes: true,
     ignores: ['dist/', 'coverage/', 'node_modules/', '.scratch/'],
+    importOrder: {
+        pathGroups: [{ pattern: '@src/**', group: 'internal', position: 'before' }],
+        pathGroupsExcludedImportTypes: ['builtin'],
+    },
 });
 
 export default [

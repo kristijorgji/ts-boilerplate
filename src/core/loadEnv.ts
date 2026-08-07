@@ -13,8 +13,9 @@
 import fs from 'fs';
 import path from 'path';
 
-import findRootDir from '@src/core/findRootDir';
 import dotenv from 'dotenv';
+
+import findRootDir from '@src/core/findRootDir';
 
 const markerFile = '.root';
 const envFileName = '.env';

@@ -2,8 +2,9 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 
-import { command, runExample } from '@src/scripts/example';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
+import { command, runExample } from '@src/scripts/example';
 
 vi.mock('@src/logger', () => ({
     logger: {
