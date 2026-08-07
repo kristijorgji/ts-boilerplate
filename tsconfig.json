@@ -15,10 +15,6 @@
     "baseUrl": ".",
     "paths": { "@src/*": ["src/*"] }
   },
-  "include": [
-    "./src"
-  ],
-  "exclude": [
-    "**/*.test.ts"
-  ]
+  "include": ["./src"],
+  "exclude": ["**/*.test.ts"]
 }

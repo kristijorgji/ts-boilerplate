@@ -36,7 +36,7 @@ export const logger = createLogger({
 function getTimestamp(): string {
     const now = new Date();
 
-    const pad = (num: number) => String(num).padStart(2, '0'); // Ensures two-digit format
+    const pad = (num: number): string => String(num).padStart(2, '0'); // Ensures two-digit format
 
     return (
         `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}` +
@@ -65,7 +65,6 @@ function getRootCallerScriptRelativePathFromRoot(): string {
     if (projectRoot === null) {
         throw new Error(
             `Could not find project root (marked by 'package.json') for script: ${absoluteMainScriptPath}. ` +
-                // eslint-disable-next-line quotes
                 "Ensure 'package.json' exists in a parent directory. " +
                 `Full process.argv: ${JSON.stringify(process.argv)}`,
         );

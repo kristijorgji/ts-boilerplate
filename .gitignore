@@ -116,3 +116,5 @@ reports
 
 # Scratch / prototyping folder (local only)
 .scratch/
+# Generated agent skills from @kristijorgji/*/skills (pnpm prepare)
+.agents/skills/vendor/

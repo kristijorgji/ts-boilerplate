@@ -1,51 +1,53 @@
 {
-  "name": "ts-boilerplate",
-  "description": "ts-boilerplate",
-  "author": "Kristi Jorgji",
-  "private": true,
-  "engines": {
-    "node": ">=22.16.0"
-  },
-  "scripts": {
-    "prepare": "husky",
-    "test": "vitest",
-    "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage",
-    "start": "tsx -r dotenv/config src/index.ts",
-    "lint": "eslint \"src/**/*.ts\" \"__tests__/**/*.ts\"",
-    "fix": "eslint --fix \"src/**/*.ts\" \"__tests__/**/*.ts\"",
-    "typecheck": "tsc --noEmit",
-    "build": "tsc && tsc-alias -p tsconfig.json",
-    "clean": "rimraf dist",
-    "script:example": "tsx -r dotenv/config src/scripts/example.ts"
-  },
-  "lint-staged": {
-    "src/**/*.ts": [
-      "eslint --fix"
-    ],
-    "__tests__/**/*.ts": [
-      "eslint --fix"
-    ]
-  },
-  "dependencies": {
-    "commander": "^14.0.3",
-    "dotenv": "^17.4.2",
-    "winston": "^3.19.0",
-    "zod": "^4.4.3"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^20.5.3",
-    "@commitlint/config-conventional": "^20.5.3",
-    "@kristijorgji/eslint-config-typescript": "^0.0.3",
-    "@types/node": "^25.6.0",
-    "@vitest/coverage-v8": "^4.1.5",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.4.0",
-    "rimraf": "^6.0.1",
-    "tsc-alias": "^1.8.17",
-    "tsx": "^4.21.0",
-    "typescript": "^5.7.3",
-    "vitest": "^4.1.5"
-  },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+    "name": "ts-boilerplate",
+    "description": "ts-boilerplate",
+    "author": "Kristi Jorgji",
+    "private": true,
+    "engines": {
+        "node": ">=22.16.0"
+    },
+    "scripts": {
+        "prepare": "husky && node scripts/sync-agent-skills.mjs",
+        "test": "vitest",
+        "test:run": "vitest run",
+        "test:coverage": "vitest run --coverage",
+        "start": "tsx -r dotenv/config src/index.ts",
+        "lint": "eslint . --max-warnings 0",
+        "fix": "eslint . --fix --max-warnings 0",
+        "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.eslint.json",
+        "build": "tsc && tsc-alias -p tsconfig.json",
+        "clean": "rimraf dist",
+        "script:example": "tsx -r dotenv/config src/scripts/example.ts"
+    },
+    "lint-staged": {
+        "*.{ts,tsx,js,jsx}": [
+            "eslint --fix"
+        ],
+        "*.{json,md}": [
+            "prettier --write"
+        ]
+    },
+    "dependencies": {
+        "commander": "^14.0.3",
+        "dotenv": "^17.4.2",
+        "winston": "^3.19.0",
+        "zod": "^4.4.3"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^20.5.3",
+        "@commitlint/config-conventional": "^20.5.3",
+        "@kristijorgji/eslint-config-typescript": "^1.2.3",
+        "@types/node": "^25.6.0",
+        "@vitest/coverage-v8": "^4.1.5",
+        "eslint": "^9.39.1",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.4.0",
+        "prettier": "^3.6.2",
+        "rimraf": "^6.0.1",
+        "tsc-alias": "^1.8.17",
+        "tsx": "^4.21.0",
+        "typescript": "^5.7.3",
+        "vitest": "^4.1.5"
+    },
+    "packageManager": "pnpm@9.15.4"
 }
